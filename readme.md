@@ -1,4 +1,14 @@
-# User Guide
+# FoxSEO for Magento 2
+
+FoxSEO for Magento 2 (formerly CreareSEO 2.0) is a set of smart tools developed to help Magento 2 comply better with search engine optimisation standards. Everything can be configured by store administrators within the Magento 2 admin area.
+
+- **SEO checklist** that suggests how your store should be configured
+- **JSON-LD structured data** for store information, social accounts and breadcrumbs
+- Features that help prevent **duplicate content** 
+- Integrated with **Google Tag Manager** &amp; **Trusted Stores**
+- **Page title and meta description templates** for products and categories
+
+## FoxSEO User Guide
 
 This guide shows you how to use all of the features contained within this extension.
 
@@ -21,12 +31,11 @@ This guide shows you how to use all of the features contained within this extens
 - [Discontinued Product Redirects](#discontinued-product-redirects)
 - [Product & Category Meta Robots](#product-category-meta-robots)
 
-
 ## SEO Checklist
 
-Go to **Stores > CreareSEO > Checklist** 
+Go to **Stores > FoxSEO > Checklist** 
 
-This page gives you an overview of your Magento default configuration settings and CreareSEO's configuration settings. A yellow bar and a tick means the setting has been configured correctly for SEO, and a red bar with a cross means that you should configuration is not correct.
+This page gives you an overview of your Magento default configuration settings and FoxSEO's configuration settings. A yellow bar and a tick means the setting has been configured correctly for SEO, and a red bar with a cross means that you should configuration is not correct.
 
 ![](images/checklist-config.png)
 
@@ -40,9 +49,9 @@ When you visit the checklist page for the first time it will show you SEO config
 
 ## Configuration
 
-Many of CreareSEO's features reside in the configuration area. 
+Many of FoxSEO's features reside in the configuration area. 
 
-Go to **Stores > CreareSEO > Settings** 
+Go to **Stores > FoxSEO > Settings** 
 
 ### SEO Settings
 
@@ -110,7 +119,7 @@ To enable simply switch to 'Yes' and enter your Twitter handle. This will then a
 
 ### Default Page Titles & Meta Descriptions
 
-CreareSEO allows you to set default page title and meta description templates for product, category and CMS pages. 
+FoxSEO allows you to set default page title and meta description templates for product, category and CMS pages. 
 
 A default product page title will simply consist of the product name:
 
@@ -118,7 +127,7 @@ A default product page title will simply consist of the product name:
 <title>Flymo Electric Lawnmower</title>
 ```
 
-Using CreareSEO we can set **Enable Default Product Title?** to 'Yes' which will then provide the ability to create a new title template in the **Default Product Title** field. This field takes attribute names in square brackets and shows their value on the frontend.
+Using FoxSEO we can set **Enable Default Product Title?** to 'Yes' which will then provide the ability to create a new title template in the **Default Product Title** field. This field takes attribute names in square brackets and shows their value on the frontend.
 
 ```html
 <!-- [name], [sku] - [store] -->
@@ -275,8 +284,6 @@ For more information go here: [https://developers.google.com/structured-data/sls
 
 Earning Trusted Store status from Google is a major stamp of approval for online businesses and will no doubt make Google look favourably on your website. You must first apply to be a trusted store through Google: [http://www.google.com/trustedstores](http://www.google.com/trustedstores)
 
-
-
 To enable this feature you must first set **Enable Google Trusted Store Tracking Code?** to 'Yes'. You will then be given a list of settings:
 
 * **Trusted Store ID** (provided by Google)
@@ -301,7 +308,7 @@ For example, enter into the **GTS Container** field *gts-custom* if you want it 
 
 ## HTML Sitemap
 
-CreareSEO wil automatically create a HTML sitemap that will reside in one of the following locations depending on your server setup:
+FoxSEO wil automatically create a HTML sitemap that will reside in one of the following locations depending on your server setup:
 
 - http://www.mydomain.com/sitemap
 - http://www.mydomain.com/index.php/sitemap
@@ -312,7 +319,7 @@ The page has a very basic appearance and will simply list your website's CMS pag
 
 ## Discontinued Product Redirects
 
-A feature of CreareSEO is the ability to redirect disabled products to a parent category, a product or the homepage. This prevents 404 URLs from showing in your webmaster tools data.
+A feature of FoxSEO is the ability to redirect disabled products to a parent category, a product or the homepage. This prevents 404 URLs from showing in your webmaster tools data.
 
 In order to set a disabled product redirect simply go to **Products > Catalog > [Product Name] > Search Engine Optimization** and look for the **Discontinued** field. There are four options:
 
