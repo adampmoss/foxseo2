@@ -53,7 +53,7 @@ class InstallData implements InstallDataInterface
             'visible'       => true,
             'required'      => false,
             'user_defined' => true,
-            'global'        => \Magento\Catalog\Model\Resource\Eav\Attribute::SCOPE_STORE
+            'global'        => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE
         ));
 
         // Custom Category Meta Robots
@@ -67,7 +67,7 @@ class InstallData implements InstallDataInterface
             'visible'       => true,
             'required'      => false,
             'user_defined' => true,
-            'global'        => \Magento\Catalog\Model\Resource\Eav\Attribute::SCOPE_STORE
+            'global'        => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE
         ));
 
         // Disabled Product Redirect Options
@@ -82,7 +82,7 @@ class InstallData implements InstallDataInterface
                 'input' => 'select',
                 'class' => 'foxseo_discontinued',
                 'source' => 'Fox\Seo\Model\Source\Discontinued',
-                'global' => \Magento\Catalog\Model\Resource\Eav\Attribute::SCOPE_STORE,
+                'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
                 'visible' => true,
                 'required' => true,
                 'user_defined' => true,
@@ -117,7 +117,7 @@ class InstallData implements InstallDataInterface
                 'label' => 'Redirect to Product SKU',
                 'input' => 'text',
                 'class' => 'foxseo_discontinued',
-                'global' => \Magento\Catalog\Model\Resource\Eav\Attribute::SCOPE_STORE,
+                'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
                 'visible' => true,
                 'required' => false,
                 'user_defined' => true,
@@ -153,7 +153,7 @@ class InstallData implements InstallDataInterface
                 'input' => 'select',
                 'class' => 'foxseo_metarobots',
                 'source' => 'Fox\Seo\Model\Source\Robots',
-                'global' => \Magento\Catalog\Model\Resource\Eav\Attribute::SCOPE_STORE,
+                'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
                 'visible' => true,
                 'required' => false,
                 'user_defined' => true,
