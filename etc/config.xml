@@ -1,0 +1,60 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <foxseo>
+            <settings>
+                <noindexparams>1</noindexparams>
+                <noindexparamssearch>1</noindexparamssearch>
+                <category_h1>1</category_h1>
+                <forcecanonical>1</forcecanonical>
+                <forcehptitle>1</forcehptitle>
+                <enablecmscanonical>1</enablecmscanonical>
+            </settings>
+            <twittercards>
+                <enabled>0</enabled>
+            </twittercards>
+            <opengraph>
+                <enabled>1</enabled>
+            </opengraph>
+            <metadata>
+                <product_title_enabled>0</product_title_enabled>
+                <product_title>[name] - [store]</product_title>
+                <product_metadesc_enabled>0</product_metadesc_enabled>
+                <product_metadesc>[name], [store]</product_metadesc>
+                <category_title_enabled>0</category_title_enabled>
+                <category_title>[original_name] - [store]</category_title>
+                <category_metadesc_enabled>0</category_metadesc_enabled>
+                <category_metadesc>[original_name] [store]</category_metadesc>
+                <cms_metadesc_enabled>0</cms_metadesc_enabled>
+                <cms_metadesc>[title] - [store]</cms_metadesc>
+            </metadata>
+            <organization_sd>
+                <enabled>0</enabled>
+            </organization_sd>
+            <product_sd>
+                <enabled>1</enabled>
+            </product_sd>
+            <social_sd>
+                <enabled>0</enabled>
+            </social_sd>
+            <logo_sd>
+                <enabled>1</enabled>
+            </logo_sd>
+            <breadcrumbs_sd>
+                <enabled>1</enabled>
+            </breadcrumbs_sd>
+            <google_tag_manager>
+                <enabled>0</enabled>
+            </google_tag_manager>
+            <google_content_grouping>
+                <enabled>0</enabled>
+            </google_content_grouping>
+            <google_sitelink_search>
+                <enabled>1</enabled>
+            </google_sitelink_search>
+            <google_trusted_store>
+                <enabled>0</enabled>
+                <badge_position>gts_bottom_right</badge_position>
+            </google_trusted_store>
+        </foxseo>
+    </default>
+</config>

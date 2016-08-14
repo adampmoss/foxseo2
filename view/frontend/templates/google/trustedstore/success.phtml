@@ -1,0 +1,47 @@
+<?php
+$_order = $block->getOrder();
+$_items = $_order->getAllVisibleItems();
+$_gtsCountry = $block->getGtsConfig('google_shopping_country');
+$_gtsLanguage = $block->getGtsConfig('google_shopping_language');
+$_gtsShoppingAccountId = $block->getGtsConfig('google_shopping_account_id');
+$_i = 1;
+?>
+<div id="gts-order" style="display:none;" translate="no">
+    <!-- start order and merchant information -->
+    <span id="gts-o-id"><?php echo $_order->getIncrementId(); ?></span>
+    <span id="gts-o-domain"><?php echo $block->getFormattedBaseUrl() ?></span>
+    <span id="gts-o-email"><?php echo $_order->getCustomerEmail(); ?></span>
+    <span id="gts-o-country"><?php echo $_gtsCountry ?></span>
+    <span id="gts-o-currency"><?php echo $_order->getBaseCurrencyCode(); ?></span>
+    <span id="gts-o-total"><?php echo $block->price($_order->getGrandTotal()); ?></span>
+    <span id="gts-o-discounts"><?php echo $block->price($_order->getDiscountAmount()); ?></span>
+    <span id="gts-o-shipping-total"><?php echo $block->price($_order->getShippingAmount()); ?></span>
+    <span id="gts-o-tax-total"><?php echo $block->price($_order->getTaxAmount()); ?></span>
+    <span id="gts-o-est-ship-date"><?php echo $block->estimatedShippingDate($_order->getCreatedAt()) ?></span>
+    <span id="gts-o-est-delivery-date"><?php echo $block->estimatedDeliveryDate($_order->getCreatedAt()) ?></span>
+    <span id="gts-o-has-preorder"><?php echo $block->orderHasPreOrders($_items); ?></span>
+    <span id="gts-o-has-digital"><?php echo $block->orderHasVirtualProducts($_items); ?></span>
+    <!-- end order and merchant information -->
+
+    <!-- start repeated item specific information -->
+    <?php foreach($_items as $_item) : ?>
+    <!-- Item <?php echo $_i; ?> -->
+	  <span class="gts-item">
+		<span class="gts-i-name"><?php echo $_item->getName(); ?></span>
+		<span class="gts-i-price"><?php echo $block->price($_item->getPrice()); ?></span>
+		<span class="gts-i-quantity"><?php echo $block->qty($_item->getQtyOrdered()); ?></span>
+		<span class="gts-i-prodsearch-id"><?php echo $_item->getSku(); ?></span>
+          <?php if (!empty($_gtsShoppingAccountId)) : ?>
+		<span class="gts-i-prodsearch-store-id"><?php echo $_gtsShoppingAccountId ?></span>
+          <?php endif ?>
+          <?php if (!empty($_gtsCountry)) : ?>
+		<span class="gts-i-prodsearch-country"><?php echo $_gtsCountry ?></span>
+          <?php endif ?>
+          <?php if (!empty($_gtsLanguage)) : ?>
+		<span class="gts-i-prodsearch-language"><?php echo $_gtsLanguage ?></span>
+          <?php endif ?>
+	  </span>
+    <!-- End item <?php echo $_i; ?> -->
+    <?php $_i++ ?>
+    <?php endforeach ?>
+</div>

@@ -1,0 +1,11 @@
+<?php $_product = $block->getProduct() ?>
+<!-- FoxSEO Twitter Product Cards -->
+<meta name="twitter:card" content="product" />
+<meta name="twitter:site" content="@magentofox" />
+<meta name="twitter:title" content="<?php echo $block->cleanString($_product->getName()) ?>" />
+<meta name="twitter:description" content="<?php echo $block->cleanString($this->helper('Magento\Catalog\Helper\Output')->productAttribute($_product, $_product->getDescription(), 'description')) ?>" />
+<meta name="twitter:image" content="<?php echo $this->helper('Magento\Catalog\Helper\Image')->init($_product, 'image'); ?>" />
+<meta name="twitter:data1" content="<?php echo $block->getStartingPrice($_product); ?>" />
+<meta name="twitter:label1" content="PRICE" />
+<meta name="twitter:data2" content="<?php echo $block->getConfig('shipping/origin/country_id') ?>" />
+<meta name="twitter:label2" content="LOCATION" />

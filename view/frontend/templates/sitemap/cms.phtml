@@ -1,0 +1,6 @@
+<h3><?php echo __('CMS Pages') ?></h3>
+<ul class="cms_sitemap">
+    <?php foreach ($block->getCmsPages() as $page) : ?>
+        <li><a href="<?php echo $this->getUrl($page['identifier']) ?>"><?php echo $page['title'] ?></a></li>
+    <?php endforeach ?>
+</ul>

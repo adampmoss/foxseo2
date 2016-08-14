@@ -1,0 +1,29 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="controller_action_predispatch_catalog_product_view">
+        <observer name="discontinued.product" instance="Fox\Seo\Observer\DiscontinuedProductCheck" />
+        <observer name="canonical.redirect" instance="Fox\Seo\Observer\CanonicalProductRedirect" />
+    </event>
+    <event name="controller_action_predispatch_catalog_category_view">
+        <observer name="discontinued.category" instance="Fox\Seo\Observer\DiscontinuedCategoryCheck" />
+        <observer name="category.noindex" instance="Fox\Seo\Observer\SetCategoryMetaRobots" />
+    </event>
+    <event name="controller_action_layout_render_before_catalogsearch_advanced_result">
+        <observer name="advancedsearch.noindex" instance="Fox\Seo\Observer\SetAdvancedSearchMetaRobots" />
+    </event>
+    <event name="controller_action_layout_render_before_catalogsearch_result_index">
+        <observer name="search.noindex" instance="Fox\Seo\Observer\SetSearchMetaRobots" />
+    </event>
+    <event name="controller_action_layout_render_before_contact_index_index">
+        <observer name="contact.meta" instance="Fox\Seo\Observer\SetContactMetaDescTitle" />
+    </event>
+    <event name="controller_action_postdispatch">
+        <observer name="remove.meta.keywords" instance="Fox\Seo\Observer\RemoveMetaKeywords" />
+    </event>
+    <event name="catalog_controller_product_init_after">
+        <observer name="default.product.meta" instance="Fox\Seo\Observer\DefaultProductMeta" />
+    </event>
+    <event name="catalog_controller_category_init_after">
+        <observer name="seo.heading" instance="Fox\Seo\Observer\CategorySeoHeading" />
+        <observer name="default.category.meta" instance="Fox\Seo\Observer\DefaultCategoryMeta" />
+    </event>
+</config>

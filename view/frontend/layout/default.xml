@@ -1,0 +1,27 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="after.body.start">
+            <block class="Magento\Framework\View\Element\Template" name="foxseo.sd"
+                   template="Fox_Seo::structureddata/js.phtml" before="-">
+                <block class="Fox\Seo\Block\StructuredData\Organization" name="foxseo.sd.organization" template="Fox_Seo::structureddata/organization.phtml" ifconfig="foxseo/organization_sd/enabled" />
+            </block>
+            <block class="Fox\Seo\Block\Template" name="foxseo.gtm" template="Fox_Seo::google/tagmanager.phtml" ifconfig="foxseo/google_tag_manager/enabled" />
+        </referenceContainer>
+        <referenceBlock name="breadcrumbs">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Fox_Seo::structureddata/breadcrumbs.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="footer_links">
+            <block class="Magento\Framework\View\Element\Html\Link\Current" name="sitemap-link">
+                <arguments>
+                    <argument name="label" xsi:type="string">Sitemap</argument>
+                    <argument name="path" xsi:type="string">sitemap</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="before.body.end">
+            <block class="Fox\Seo\Block\TrustedStores" name="foxseo.gts" template="Fox_Seo::google/trusted-store.phtml" ifconfig="foxseo/google_trusted_store/enabled" />
+        </referenceBlock>
+    </body>
+</page>

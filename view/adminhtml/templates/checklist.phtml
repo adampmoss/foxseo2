@@ -1,0 +1,40 @@
+<h2><?php echo __('FoxSEO Configuration Settings') ?></h2>
+<div class="messages">
+    <?php echo $block->check('foxseo/settings/noindexparams', '1', __('NOINDEX meta tag for parameter-based category
+    pages')) ?>
+    <?php echo $block->check('foxseo/settings/noindexparamssearch', '1', __('NOINDEX meta tag for search pages')) ?>
+    <?php echo $block->check('foxseo/settings/category_h1', '1', __('Custom headings (H1) on category pages')) ?>
+    <?php echo $block->check('foxseo/settings/forcecanonical', '1', __('Canonical product redirects')) ?>
+    <?php echo $block->check('foxseo/settings/enablecmscanonical', '1', __('Canonical meta tag for CMS pages')) ?>
+    <?php echo $block->check('foxseo/twittercards/enabled', '1', __('Twitter cards on product pages')) ?>
+    <?php echo $block->check('foxseo/organization_sd/enabled', '1', __('Organization structured data')) ?>
+    <?php echo $block->check('foxseo/social_sd/enabled', '1', __('Social structured data')) ?>
+    <?php echo $block->check('foxseo/logo_sd/enabled', '1', __('Logo structured data')) ?>
+    <?php echo $block->check('foxseo/breadcrumbs_sd/enabled', '1', __('Breadcrumbs structured data')) ?>
+    <?php echo $block->check('foxseo/google_tag_manager/enabled', '1', __('Google Tag Manager')) ?>
+    <?php echo $block->check('foxseo/google_content_grouping/enabled', '1', __('Google Content Grouping')) ?>
+    <?php echo $block->check('foxseo/google_sitelink_search/enabled', '1', __('Google Sitelink Search')) ?>
+    <?php echo $block->check('foxseo/metadata/product_title_enabled', '1', __('Default product page title fallbacks')) ?>
+    <?php echo $block->check('foxseo/metadata/product_metadesc_enabled', '1', __('Default product meta description fallbacks')) ?>
+    <?php echo $block->check('foxseo/metadata/category_title_enabled', '1', __('Default category page title fallbacks')) ?>
+    <?php echo $block->check('foxseo/metadata/category_metadesc_enabled', '1', __('Default category meta description fallbacks')) ?>
+</div>
+<h2><?php echo __('Magento Configuration Settings') ?></h2>
+<div class="messages">
+    <?php echo $block->check('web/seo/use_rewrites', '1', __('Web server rewrites')) ?>
+    <?php echo $block->check('catalog/seo/category_canonical_tag', '1', __('Canonical meta tag for category pages')) ?>
+    <?php echo $block->check('catalog/seo/product_canonical_tag', '1', __('Canonical meta tag for product pages')) ?>
+    <?php echo $block->check('catalog/seo/product_use_categories', '0', __('Product URLs do not use category path')) ?>
+    <?php echo $block->check('catalog/seo/product_url_suffix', '.html', __('Product URL suffix')) ?>
+    <?php echo $block->check('catalog/seo/category_url_suffix', NULL, __('Category URL suffix')) ?>
+</div>
+
+<h2><?php echo __('Magento Default Values') ?></h2>
+<div class="messages">
+    <?php echo $block->check('design/head/default_description', NULL, __('Empty default meta description')) ?>
+    <?php echo $block->check('design/head/default_keywords', NULL, __('Empty default meta keywords')) ?>
+    <?php echo $block->check('design/search_engine_robots/default_robots', 'INDEX,FOLLOW', __('Default meta robots
+    set to INDEX,FOLLOW')) ?>
+    <?php echo $block->check('design/header/logo_alt', 'Magento Commerce', __('Non-default logo alt text'), 'not_equal_to') ?>
+    <?php echo $block->check('design/header/welcome', 'Default welcome msg!', __('Non-default welcome message'), 'not_equal_to') ?>
+</div>

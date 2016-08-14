@@ -1,0 +1,7 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="foxseo.gts">
+            <block class="Fox\Seo\Block\TrustedStores" name="foxseo.gts.success" template="Fox_Seo::google/trustedstore/success.phtml" />
+        </referenceBlock>
+    </body>
+</page>

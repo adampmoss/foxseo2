@@ -1,0 +1,429 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="foxseo" translate="label" sortOrder="200">
+            <label>FoxSEO</label>
+        </tab>
+        <section id="foxseo" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <label>Settings</label>
+            <tab>foxseo</tab>
+            <resource>Fox_Seo::settings</resource>
+
+            <!--
+                SEO Settings
+            -->
+
+            <group id="settings" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>SEO Settings</label>
+                <field id="noindexparams" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use NOINDEX, FOLLOW Meta Tag on Filtered Category Pages</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="noindexparamssearch" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use NOINDEX, FOLLOW Meta Tag on Search Results Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="noindexparamsadvsearch" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use NOINDEX, FOLLOW Meta Tag on Advanced Search Results Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="category_h1" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Unique Category Heading field</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="forcecanonical" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Canonical Product Redirecting</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <!--<field id="forcehptitle" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Force Homepage Title (disregard prefix/suffix)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>-->
+                <field id="enablecmscanonical" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use Canonical Link Meta Tag For CMS Pages</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="removekeywords" translate="label" type="select" sortOrder="90" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Remove Meta Keywords Tags?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>
+                        <![CDATA[Please also empty the keywords field in General > Design > HTML Head > Default Keywords]]>
+                    </comment>
+                </field>
+            </group>
+
+            <!--
+                Twitter Cards
+            -->
+
+            <group id="twittercards" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Product Twitter Cards</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Twitter Cards on Product Pages</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>
+                        <![CDATA[<p>Enable or disable Twitter product cards schema. Location will be taken from Sales > Shipping Settings > Origin.</p>]]>
+                    </comment>
+                </field>
+                <field id="twittersite" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Twitter Site @</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+
+            <!--
+                Default Page Titles & Meta Descriptions
+            -->
+
+            <group id="metadata" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Default Page Titles &amp; Meta Descriptions</label>
+                <comment>
+                    <![CDATA[
+                        <p>Enabling the 'Default Page Titles and Meta Descriptions’ feature will dynamically create unique Page Titles and Meta Descriptions for your Category and Product pages. If you subsequently define Page Titles or Meta Descriptions </p>
+                        ]]>
+                </comment>
+                <field id="product_title_enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Default Product Title?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="product_title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Product Title</label>
+                    <comment><![CDATA[
+                                <small>[name] = Product Name<br />
+                                [store] = Store Name<br />
+                                [attribute_code] = Attribute Value<br />
+                                <strong>For example: [name] - [store].</strong></small>
+                        ]]>
+                    </comment>
+                    <depends>
+                        <field id="product_title_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="product_metadesc_enabled" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Default Product Meta Description?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="product_metadesc" translate="label" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Product Meta Description</label>
+                    <comment><![CDATA[
+                            <small>[name] = Product Name<br />
+                            [store] = Store Name<br />
+                            [attribute_code] = Attribute Value<br />
+                            <strong>For example: Buy [name] online from our [store]. See our other [brand] products.</strong></small>]]>
+                    </comment>
+                    <depends>
+                        <field id="product_metadesc_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="category_title_enabled" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Default Category Title?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="category_title" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Category Title</label>
+                    <comment><![CDATA[
+                                <small>[name] = Category Name<br />
+                                [original_name] = Original Category Name (if category heading rewrites is enabled)<br />
+                                [store] = Store Name<br />
+                                <strong>For example: [name] - [store].</strong></small>
+                        ]]>
+                    </comment>
+                    <depends>
+                        <field id="category_title_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="category_metadesc_enabled" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Default Category Meta Description?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="category_metadesc" translate="label" type="textarea" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Category Meta Description</label>
+                    <comment><![CDATA[
+                                <small>[name] = Category Name<br />
+                                [original_name] = Original Category Name (if category heading rewrites is enabled)<br />
+                                [store] = Store Name<br />
+                                <strong>For example: Browse our [name] products at [store].</strong></small>
+                        ]]>
+                    </comment>
+                    <depends>
+                        <field id="category_metadesc_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="cms_metadesc_enabled" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Default CMS Meta Description?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cms_metadesc" translate="label" type="textarea" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Category Meta Description</label>
+                    <comment><![CDATA[
+                                <small>[title] = CMS Page Name<br />
+                                [store] = Store Name</small><br />
+                                <strong>For example: [title] - [store].</strong></small>
+                        ]]>
+                    </comment>
+                    <depends>
+                        <field id="cms_metadesc_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="contact_title" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Contact Page Title</label>
+                    <comment><![CDATA[This will also change the contact page &lt;h1&gt; heading to the text entered above]]>
+                    </comment>
+                </field>
+                <field id="contact_metadesc" translate="label" type="textarea" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Contact Page Meta Description</label>
+                </field>
+            </group>
+
+            <!--
+                Organization Structured Data
+            -->
+
+            <group id="organization_sd" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Organization Structured Data</label>
+                <comment>
+                    <![CDATA[
+            <p>Add your business details below to include <a href="http://schema.org/Organization" target="_blank">Organization Structured Data</a> on your website.</p>
+            ]]>
+                </comment>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Organization Structured Data?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="street_address" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Street Address</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="address_locality" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Address Locality</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="region" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Region</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="postcode" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Postal Code</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+
+            <!--
+                Social Structured Data
+            -->
+
+            <group id="social_sd" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Social Structured Data</label>
+                <comment>
+                    <![CDATA[
+                        <p>Enable social schema to include structured data on your website. For more information see here: <a href="https://developers.google.com/structured-data/customize/social-profiles" target="_blank">https://developers.google.com/structured-data/customize/social-profiles</a></p>
+                        ]]>
+                </comment>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Social Structured Data?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="social_profiles" translate="label" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Social Profiles</label>
+                    <comment><![CDATA[Add the full URLs to your social profiles (e.g. http://twitter.com/magentofox) - ONE per line!]]></comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <!--
+                Breadcrumbs Structured Data
+            -->
+
+            <group id="breadcrumbs_sd" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Breadcrumbs Structured Data</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Breadcrumbs Structured Data?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <!--
+                Google Tag Manager
+            -->
+
+            <group id="google_tag_manager" translate="label" type="text" sortOrder="100" showInDefault="1"
+                   showInWebsite="1"
+                   showInStore="1">
+                <label>Google Tag Manager</label>
+                <comment>
+                    <![CDATA[
+                            <p>Find out more about Google Tag Manager here: <a href="https://support.google.com/tagmanager/answer/6102821?hl=en" target="_blank">https://support.google.com/tagmanager/answer/6102821?hl=en</a></p>
+                        ]]>
+                </comment>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Google Tag Manager?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="gtm_id" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>GTM ID</label>
+                    <comment><![CDATA[E.g. GTM-XXXXXX]]></comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <!--
+                Google Content Grouping
+            -->
+
+            <group id="google_content_grouping" translate="label" type="text" sortOrder="110" showInDefault="1"
+                   showInWebsite="1"
+                   showInStore="1">
+                <label>Google Content Grouping</label>
+                <comment>
+                    <![CDATA[
+                            <p>Google content grouping allows you to group certain types of content found on your site so that you can use this information in Google Analytics. For example you could find out how many of your total visits where to product pages, category pages or CMS pages. For more information visit this link: <a href="https://support.google.com/analytics/answer/2853423?hl=en" target="_blank">https://support.google.com/analytics/answer/2853423?hl=en</a></p>
+                            <p>Within this extension we have allowed you to add tracking code for products, categories and CMS pages. To set up your tracking codes go to your Analytics dashboard and go to <strong>Admin > Content Grouping > + New Content Grouping</strong>. Give it a name (such as 'Product Page'), and then from the options choose 'Enable Tracking Code', then copy and past the Universal tracking code into the Product field below.</p>
+                        ]]>
+                </comment>
+                <field id="product" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product Tracking Code</label>
+                    <comment><![CDATA[E.g. ga('set', 'contentGroup1', 'Product Page'); ]]></comment>
+                </field>
+                <field id="category" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Category Tracking Code</label>
+                    <comment><![CDATA[E.g. ga('set', 'contentGroup1', 'Category Page'); ]]></comment>
+                </field>
+                <field id="cms" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>CMS Page Tracking Code</label>
+                    <comment><![CDATA[E.g. ga('set', 'contentGroup1', 'CMS Page'); ]]></comment>
+                </field>
+            </group>
+
+            <!--
+                Google Sitelink Search
+            -->
+
+            <group id="google_sitelink_search" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Google Sitelink Search</label>
+                <comment>
+                    <![CDATA[
+                            <p>If you enable Sitelink Search you will provide Google with structured data about the search form on your website. For more information go here: <a href="https://developers.google.com/structured-data/slsb-overview" target="_blank">https://developers.google.com/structured-data/slsb-overview</a></p>
+                        ]]>
+                </comment>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Sitelink Search?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <!--
+                Google Trusted Stores
+            -->
+
+            <group id="google_trusted_store" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Google Trusted Store</label>
+                <comment>
+                    <![CDATA[
+                            <p>Earning Trusted Store status from Google is a major stamp of approval for online businesses and will no doubt make Google look favourably on your website. You must first apply to be a trusted store through Google: <a  href="http://www.google.com/trustedstores/">http://www.google.com/trustedstores</a></p>
+                        ]]>
+                </comment>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Google Trusted Store Tracking Code?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="trusted_store_id" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Trusted Store ID</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="google_shopping_account_id" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Shopping Account ID (optional)</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment><![CDATA[Provide this field only if you submit feeds for Google Shopping.]]></comment>
+                </field>
+                <field id="badge_position" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Badge Position</label>
+                <source_model>Fox\Seo\Model\Source\BadgePositions</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="gts_container" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>GTS Container</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="badge_position">USER_DEFINED</field>
+                    </depends>
+                    <comment><![CDATA[This is HTML container ID. Only applicable if Badge Position is set to 'User Defined' ]]></comment>
+                </field>
+                <field id="google_shopping_country" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Shopping Country</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="google_shopping_language" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Shopping Language</label>
+                    <source_model>Fox\Seo\Model\Source\Languages</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="estimated_shipping_days" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Estimated Shipping Days</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment><![CDATA[Expected number of days between when the customer places an order and you ship it
+                        ]]></comment>
+                </field>
+                <field id="estimated_delivery_days" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Estimated Delivery Days</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <comment><![CDATA[Expected number of days between when you’ve shipped the order and when the customer receives it]]></comment>
+                </field>
+                <field id="product_enabled" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable SKU as 'ITEM_GOOGLE_SHOPPING_ID' on product pages?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Enable this field only if you submit feeds for Google Shopping.]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

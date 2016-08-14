@@ -1,0 +1,43 @@
+<?php if ($crumbs && is_array($crumbs)) : ?>
+    <div class="breadcrumbs">
+        <ul class="items">
+            <?php foreach ($crumbs as $crumbName => $crumbInfo) : ?>
+                <li class="item <?php echo $crumbName ?>">
+                    <?php if ($crumbInfo['link']) : ?>
+                        <a href="<?php echo $crumbInfo['link'] ?>" title="<?php echo $block->escapeHtml($crumbInfo['title']) ?>">
+                            <?php echo $block->escapeHtml($crumbInfo['label']) ?>
+                        </a>
+                    <?php elseif ($crumbInfo['last']) : ?>
+                        <strong><?php echo $block->escapeHtml($crumbInfo['label']) ?></strong>
+                    <?php else: ?>
+                        <?php echo $block->escapeHtml($crumbInfo['label']) ?>
+                    <?php endif; ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php $crumbCount = count($crumbs) ?>
+<?php $i = 1; ?>
+<script type="application/ld+json">
+// Breadcrumb Structured Data from FoxSEO
+{
+ "@context": "http://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement":
+ [
+ <?php foreach($crumbs as $_crumbName => $_crumbInfo): ?>
+  {
+   "@type": "ListItem",
+   "position": <?php echo $i ?>,
+   "item":
+   {
+    "@id": "<?php echo $_crumbInfo['link'] ?>",
+    "name": "<?php echo $this->escapeHtml($_crumbInfo['label']) ?>"
+    }
+  }<?php echo ($i != $crumbCount ? ',' : '') ?>
+        <?php $i++ ?>
+    <?php endforeach ?>
+ ]
+}
+</script>
+<?php endif; ?>

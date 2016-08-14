@@ -1,0 +1,12 @@
+
+// Sitelink Search from FoxSEO
+{
+"@context": "http://schema.org",
+"@type": "WebSite",
+"url": "<?php echo $block->getBaseUrl() ?>",
+"potentialAction": {
+"@type": "SearchAction",
+"target": "<?php echo $block->getBaseUrl() ?>catalogsearch/result/?q={search_term_string}",
+"query-input": "required name=search_term_string"
+}
+}

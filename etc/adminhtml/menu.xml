@@ -1,0 +1,7 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+    	<add id="Fox_Seo::foxseo" title="FoxSEO" module="Fox_Seo" sortOrder="60" parent="Magento_Backend::stores" resource="Fox_Seo::stores_foxseo_settings"/>
+        <add id="Fox_Seo::foxseo_checklist" title="Checklist" module="Fox_Seo" sortOrder="10" parent="Fox_Seo::foxseo" action="foxseo/checklist" resource="Fox_Seo::checklist"/>
+        <add id="Fox_Seo::foxseo_settings" title="Settings" module="Fox_Seo" sortOrder="20" parent="Fox_Seo::foxseo" action="adminhtml/system_config/edit/section/foxseo" resource="Fox_Seo::settings"/>
+    </menu>
+</config>

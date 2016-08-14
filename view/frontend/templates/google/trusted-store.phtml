@@ -1,0 +1,37 @@
+<!-- Google Trusted Store from FoxSEO -->
+<?php $_badgePosition = $block->getGtsConfig('badge_position') ?>
+<?php $_gtsContainer = $block->getGtsConfig('gts_container') ?>
+<?php $_gtsCountry = $block->getGtsConfig('google_shopping_country') ?>
+<?php $_gtsLanguage = $block->getGtsConfig('google_shopping_language') ?>
+<?php $_gtsShoppingAccountId = $block->getGtsConfig('google_shopping_account_id') ?>
+<script type="text/javascript">
+    var gts = gts || [];
+    gts.push(["id", "<?php echo $block->getGtsConfig('trusted_store_id') ?>"]);
+    gts.push(["badge_position", "<?php echo $_badgePosition ?>"]);
+    <?php if ($_gtsContainer && $_badgePosition == "USER_DEFINED") : ?>
+    gts.push(["badge_container", "<?php echo $_gtsContainer ?>"]);
+    <?php endif ?>
+    gts.push(["locale", "<?php echo $block->getConfig('general/locale/code') ?>"]);
+    <?php if ($_gtsShoppingAccountId) : ?>
+    gts.push(["google_base_subaccount_id", "<?php echo $_gtsShoppingAccountId ?>"]);
+    <?php endif ?>
+    <?php if ($_gtsCountry) : ?>
+    gts.push(["google_base_country", "<?php echo $_gtsCountry ?>"]);
+    <?php endif ?>
+    <?php if ($_gtsLanguage) : ?>
+    gts.push(["google_base_language", "<?php echo $_gtsLanguage ?>"]);
+    <?php endif ?>
+    <?php echo $this->getChildHtml('foxseo.gts.product') ?>
+    (function() {
+        var gts = document.createElement("script");
+        gts.type = "text/javascript";
+        gts.async = true;
+        gts.src = "https://www.googlecommerce.com/trustedstores/api/js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(gts, s);
+    })();
+</script>
+<?php if ($_gtsContainer && $_badgePosition == "USER_DEFINED") : ?>
+<div id="<?php echo $_gtsContainer ?>"></div>
+<?php endif ?>
+<?php echo $this->getChildHtml('foxseo.gts.success') ?>

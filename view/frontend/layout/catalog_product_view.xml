@@ -1,0 +1,17 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="head.additional">
+            <block class="Fox\Seo\Block\StructuredData\TwitterCards" name="foxseo.twittercards" template="Fox_Seo::structureddata/twittercards.phtml" ifconfig="foxseo/twittercards/enabled" />
+        </referenceBlock>
+        <referenceBlock name="footer">
+            <block class="Fox\Seo\Block\Template" name="foxseo.content.grouping" template="Fox_Seo::google/content-grouping.phtml" ifconfig="foxseo/google_content_grouping/product">
+                <action method="setType">
+                    <argument name="name" xsi:type="string">product</argument>
+                </action>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="foxseo.gts">
+            <block class="Fox\Seo\Block\TrustedStores" name="foxseo.gts.product" template="Fox_Seo::google/trustedstore/product.phtml" ifconfig="foxseo/google_trusted_store/product_enabled" />
+        </referenceBlock>
+    </body>
+</page>
