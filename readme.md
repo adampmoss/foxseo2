@@ -8,7 +8,16 @@ FoxSEO for Magento 2 (formerly CreareSEO 2.0) is a set of smart tools developed 
 - Integrated with **Google Tag Manager** &amp; **Trusted Stores**
 - **Page title and meta description templates** for products and categories
 
-## FoxSEO User Guide
+## How To Install via Composer
+
+1. Navigate to your Magento root directory
+2. `composer config repositories.magento composer https://github.com/adampmoss/foxseo2`
+3. `composer require fox/seo`
+4. `composer update`
+5. `php bin/magento setup:upgrade`
+
+
+## User Guide
 
 This guide shows you how to use all of the features contained within this extension.
 
