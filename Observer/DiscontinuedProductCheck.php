@@ -4,6 +4,7 @@ namespace Fox\Seo\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Catalog\Api\ProductRepositoryInterface;
+use Magento\Catalog\Api\CategoryRepositoryInterface;
 
 class DiscontinuedProductCheck implements ObserverInterface
 {
