@@ -55,6 +55,9 @@
                 <enabled>0</enabled>
                 <badge_position>gts_bottom_right</badge_position>
             </google_trusted_store>
+            <hreflang>
+                <enabled>0</enabled>
+            </hreflang>
         </foxseo>
     </default>
 </config>

@@ -1,0 +1,6 @@
+<?php $langs = $block->getLangs(); ?>
+<?php if ($langs && is_array($langs)): ?>
+    <?php foreach ($langs as $code => $url) : ?>
+        <link rel="alternate" href="<?php echo $url; ?>" hreflang="<?php echo $code; ?>"/>
+    <?php endforeach; ?>
+<?php endif; ?>
