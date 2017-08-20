@@ -424,6 +424,24 @@
                     <comment><![CDATA[Enable this field only if you submit feeds for Google Shopping.]]></comment>
                 </field>
             </group>
+
+            <!--
+                link alternative hreflang
+            -->
+
+            <group id="hreflang" translate="label" type="text" sortOrder="131" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Language and Regional URLs</label>
+                <comment>
+                    <![CDATA[
+                            <p>Provide metadata to inform search enginges about alternative versions of the same page for different languages and regions. This metadata is rendered in the HTML head as <code>rel="alternate" hreflang="x"</code></p>
+                        ]]>
+                </comment>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Language and Regional URLs?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
         </section>
     </system>
 </config>

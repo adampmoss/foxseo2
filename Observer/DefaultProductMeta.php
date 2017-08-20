@@ -35,6 +35,14 @@ class DefaultProductMeta implements ObserverInterface
     {
         $category = $observer->getEvent()->getCategory();
 
+        // Maybe the category is in the product?
+        if ($category === null) {
+            $category = $observer->getEvent()->getProduct()->getCategory();
+        }
+
+        // Or maybe there's just no category.
+        if ($category === null) return;
+
         $this->_foxSeoHelper->checkMetaData($category, 'category');
 
         if ($robots = $category->getData('foxseo_metarobots'))
