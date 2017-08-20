@@ -39,6 +39,8 @@ class Hreflang extends \Magento\Framework\View\Element\Template
             if ($store->getWebsiteId() === $currentWebsiteId) {
                 $storeUrl = $product->setStoreId($store->getId())->getUrlInStore();
                 $storeLangcode = $this->_scopeConfig->getValue('general/locale/code', \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $code);
+                // Google wants langcodes with dashes rather than underscores;
+                $storeLangcode = str_replace('_', '-', $storeLangcode);
                 $storelangs[$storeLangcode] = $storeUrl;
             }
         }
