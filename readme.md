@@ -1,4 +1,6 @@
-# FoxSEO for Magento 2
+# ** THIS REPO HAS NOT BEEN MAINTAINED AT SINCE 2016 - THE PLUGIN SHOULD NOT BE USED **
+
+## FoxSEO for Magento 2
 
 FoxSEO for Magento 2 (formerly CreareSEO 2.0) is a set of smart tools developed to help Magento 2 comply better with search engine optimisation standards. Everything can be configured by store administrators within the Magento 2 admin area.
 
